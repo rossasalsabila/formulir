@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>PHP form example</title>
+  <style>
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+    }
+  </style>
+</head>
+
+<body>
+<script>
+
+function validasiForm() {
+ var nama = document.getElementById("nama_tim");
+    console.log("tes");
+    var ketua = document.getElementById("nama_ketua_tim").value;
+    // console.log("tes"); 
+    var nomorHp = document.getElementById("no_hp_ketua_tim").value;
+    var foto = document.getElementById("upload_foto_ktp_ketua_tim").files[0]; // Ambil file foto
+
+//     // Validasi nama tim tidak boleh kosong dan hanya huruf
+//     if (nama == "" || !/^[a-zA-Z\s]+$/.test(nama)) {
+//         alert("Nama tim tidak boleh kosong dan hanya boleh berisi huruf.");
+// //         return false;
+//     }
+//     // Validasi nama ketua tidak boleh kosong dan hanya huruf
+//     if (ketua == "" || !/^[a-zA-Z\s]+$/.test(ketua)) {
+//          alert("Nama ketua tidak boleh kosong dan hanya boleh berisi huruf.");
+// //          return false;
+//       console.log("KETUA");
+//      }
+
+    // Validasi nomor HP maksimal 11 karakter
+//     if (nomorHp.length > 11) {
+//         alert("Nomor HP maksimal 11 karakter.");
+//         return false;
+//     }
+
+    // Validasi nomor HP hanya boleh angka
+//     if (!/^\d+$/.test(nomorHp)) {
+//         alert("Nomor HP hanya boleh berisi angka.");
+//         return false;
+//     }
+
+    // Validasi ukuran file foto maksimal 2 MB
+//     if (foto && foto.size > 2 * 1024 * 1024) {
+//         alert("Ukuran file foto tidak boleh lebih dari 2 MB.");
+//         return false;
+//     }
+
+//     return true;
+}
+</script>
+<form method="POST" enctype="multipart/form-data" ></form>
+    <center>
+      <h1>Formulir Pendaftaran Lomba Volly Antar RT RW</h1>
+    </center>
+    <br>
+    <h4>
+     
+        <fieldset>
+          <center>
+          
+            <table>
+            <tr>
+              <td><label for="nama_tim">Nama Tim</label></td>
+              <td>:</td>
+              <td><input type="text" name="nama_tim" id="nama_tim" placeholder="masukkan nama" required oninvalid="this.setCustomValidity('Nama Tidak Boleh Kosong')" oninput="this.setCustomValidity('')"></td>
+            </tr>
+    
+            <tr>
+          <td><label for="jumlah_anggota">Jumlah Anggota</label></td>
+        <td>:</td>
+        <td><input type="text" name="jumlah_anggota" id="jumlah_anggota" placeholder="masukkan jumlah"></td>
+      </tr>
+      <tr>
+        <td><label for="asal">Asal</label></td>
+        <td>:</td>
+        <td><input type="text" name="rt" id="asal" placeholder="RT"><br>
+        <input type="text" id="asalrw" name="rw" placeholder="RW"></td>
+      </tr>
+      <tr>
+        <td><label for="nama_ketua_tim">Nama Ketua Tim</label></td>
+        <td>:</td>
+        <td><input type="text" name="nama_ketua_tim" id="nama_ketua_tim" placeholder="masukkan nama" onchange="validasiForm()"></td>
+      </tr>
+      <tr>
+        <td><label for="no_hp_ketua_tim">No HP Ketua Tim</label></td>
+        <td>:</td>
+        <td><input type="text" name="no_hp_ketua_tim" id="no_hp_ketua_tim" placeholder="masukkan nomer"></td>
+      </tr>
+      <tr>
+        <td><label for="upload_foto_ktp_ketua_tim">Upluod Foto KTP ketua Tim</label></td>
+        <td>:</td>
+        <td><input type="file" name="upload_foto_ktp_ketua_tim" id="upload_foto_ktp_ketua_tim"></td>
+      </tr>
+      <tr>
+        <td><label for="tanggal_pendaftaran">Tanggal Pendaftaran</label></td>
+        <td>:</td>
+        <td><input type="date" name="tanggal_Pendaftaran" id="tanggal_pendaftaran"></td>
+      </tr>
+      <tr>
+        <td>TIM</td>
+        <td>:</td>
+        <td><input type="radio" name="jawaban" value="putra" checked/>putra</td>
+        <td><input type="radio" name="putri" value="putri"/>putri</td>
+      </tr>
+      <tr>
+        <td>Silahkah Klik Tombol Masuk</td>
+        <td>:</td>
+        <td><input type="submit" name="submit" value="Masuk" ></td>
+      </tr>
+      
+    </table>
+  </fieldset>
+
+
+</center>
+</h4>
+</body>
+</html>
