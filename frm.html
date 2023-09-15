@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Rossa</title>
+  <script>
+    function checkFileSize(input) {
+        var maxSize = 2 * 1024 * 1024; // 2 MB
+        if (input.files[0].size > maxSize) {
+            alert("Ukuran file lebih dari 2 MB.");
+            input.value = ""; // Reset nilai input
+        }
+    }
+</script>
+  <style>
+    @import url('https://fonts.cdnfonts.com/css/poppins');
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      text-transform: capitalize;
+    }
+
+    legend {
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+    <form method="post" onsubmit="validationForm()">
+      <fieldset>
+        <legend>Formulir Pendaftaran Lomba Volly Antar RT RW</legend>
+        <table>
+          <tr>
+            <td><label for="nama_tim">Nama Tim</label></td>
+            <td>:</td>
+            <td><input type="text" name="nama_tim" id="nama_tim" placeholder="masukkan nama" required oninvalid="this.setCustomValidity('Nama Tim Tidak Boleh Kosong dan Tidak Boleh Menggunakan Angka')" oninput="this.setCustomValidity('')" pattern="[a-zA-Z]+"></td>
+          </tr>
+
+          <tr>
+            <td><label for="jumlah_anggota">Jumlah Anggota</label></td>
+            <td>:</td>
+            <td><input type="number" name="jumlah_anggota" id="jumlah_anggota" placeholder="masukkan jumlah" required oninvalid="this.setCustomValidity('Jumlah Anggota Tidak Boleh Kosong')" oninput="this.setCustomValidity('')"></td>
+          </tr>
+          <tr>
+            <td><label for="asal">Asal</label></td>
+            <td>:</td>
+            <td><input type="number" name="rt" id="asal" placeholder="RT"  required oninvalid="this.setCustomValidity('RT Tidak Boleh Kosong')" oninput="this.setCustomValidity('')"><br>
+              <input type="number" id="asal" name="rw" placeholder="RW"  required oninvalid="this.setCustomValidity('RW Tidak Boleh Kosong')" oninput="this.setCustomValidity('')">
+            </td>
+          </tr>
+          <tr>
+            <td><label for="nama_ketua_tim">Nama Ketua Tim</label></td>
+            <td>:</td>
+            <td><input type="tel" name="nama_ketua_tim" id="nama_ketua_tim" placeholder="masukkan nama"  required oninvalid="this.setCustomValidity('Nama Ketua Tim Tidak Boleh Kosong dan Tidak Boleh Menggunakan Angka')" oninput="this.setCustomValidity('')" pattern="[a-zA-Z]+"></td>
+          </tr>
+          <tr>
+            <td><label for="no_hp_ketua_tim">No HP Ketua Tim</label></td>
+            <td>:</td>
+            <td><input type="text" name="no_hp_ketua_tim" id="no_hp_ketua_tim" placeholder="masukkan nomer"  required minlength="11" oninvalid="this.setCustomValidity('No. HP Ketua Tim Tidak Boleh Kosong dan Minimal 11 angka')" oninput="this.setCustomValidity('')"></td>
+          </tr>
+          <tr>
+            <td><label for="upload_foto_ktp_ketua_tim">Upluod Foto KTP ketua Tim</label></td>
+            <td>:</td>
+            <td><input type="file" name="upload_foto_ktp_ketua_tim" id="upload_foto_ktp_ketua_tim"onchange="checkFileSize(this)"></td>
+          </tr>
+          <tr>
+            <td><label for="tanggal_pendaftaran">Tanggal Pendaftaran</label></td>
+            <td>:</td>
+            <td><input type="date" name="tanggal_Pendaftaran" id="tanggal_pendaftaran"></td>
+          </tr>
+          <tr>
+            <td>Tim</td>
+            <td>:</td>
+            <td><input type="radio" name="jawaban" value="putra" />putra
+              <input type="radio" name="jawaban" value="putri" />putri</td>
+          </tr>
+          <tr>
+            <td>Silahkah Klik Tombol Masuk</td>
+            <td>:</td>
+            <td><input type="submit" name="submit" value="Masuk"></td>
+          </tr>
+
+        </table>
+      </fieldset>
+    </form>
+
+    <script>
+      function validationForm() {
+        var namaTim = document.getElementById('nama_tim').value;
+        var nomor = document.getElementById('no_hp_ketua_tim').value;
+
+        var letters = /^[A-Za-z]+$/;
+        if (namaTim.value.match(letters)){
+          return true;
+        }else {
+          alert('Nama Tidak Boleh Mengandung Angka!!!')
+          return false;
+        }
+      
+        if (nomor.length < 11) {
+          alert('Nomor Telepon Harus Memiliki Setidaknya 11 Karakter');
+          return false;
+        }
+      }
+    </script>
+</body>
+
+</html>
